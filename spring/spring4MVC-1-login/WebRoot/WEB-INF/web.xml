@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+id="WebApp_ID" 
+version="3.0">
+     
+     <servlet>
+        <servlet-name>springMVC</servlet-name>    <!-- servletname-servlet.xml -->
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        
+        <!-- 设置加载的优先级 -->
+        <load-on-startup>1</load-on-startup>
+     </servlet>
+     <servlet-mapping>
+         <servlet-name>springMVC</servlet-name>
+         <url-pattern>*.spring</url-pattern>      <!-- 设置访问路径 -->
+     </servlet-mapping>
+     <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+     </welcome-file-list>
+  
+</web-app>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+    
+     <!-- 通过属性注入方法来配置bean -->
+    <!-- id标识容器中的bean,唯一 -->
+    <bean id="helloword" class="com.beans.HelloWord">   <!-- 这里用到反射，，所以必须要求bean有无参数的构造器 -->
+      <property name="name" value="spring"></property>   <!-- 属性注入 -->
+    </bean>
+    
+    
+    
+    <!-- 通过构造方法来配置bean -->
+      <!-- 可以指定参数的位置以及类型来区分重载的构造器 -->
+    <bean id="car"  class="com.beans.Car">
+      <constructor-arg  value="Audi" type="java.lang.String"></constructor-arg>
+      <constructor-arg  type="java.lang.String">
+         <!-- 使用value子节点进行注入 -->
+         <value><![CDATA[<shanghai>]]></value>   
+      </constructor-arg>
+      <constructor-arg value="300000" type="int"></constructor-arg>
+    
+    </bean>
+     
+    <bean id="car2" class="com.beans.Car">
+       <constructor-arg value="DasAuto" type="java.lang.String"></constructor-arg>
+       <constructor-arg value="ShangHai" type="java.lang.String"></constructor-arg>
+       <constructor-arg value="230" type="double"></constructor-arg>
+    </bean>
+    
+    <bean id="person" class="com.beans.Person">
+      <property name="name" value="Tom"></property>
+      <
+       <property name="age" value="24"></property>
+       <property name="car" ref="car2"></property>  <!-- 引用bean -->
+    </bean>
+    
+</beans>

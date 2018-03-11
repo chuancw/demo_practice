@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_9" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+  <!-- 文件映射 -->
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>*.action</url-pattern>
+    </filter-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TestOrderBy</servlet-name>
+    <servlet-class>controller.TestOrderBy</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TestList</servlet-name>
+    <servlet-class>controller.TestList</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TestIterator</servlet-name>
+    <servlet-class>controller.TestIterator</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Test_zhanweifu</servlet-name>
+    <servlet-class>controller.Test_zhanweifu</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TestOneResult</servlet-name>
+    <servlet-class>controller.TestOneResult</servlet-class>
+  </servlet>
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>TestOrderBy</servlet-name>
+    <url-pattern>/TestOrderBy</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestList</servlet-name>
+    <url-pattern>/TestList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestIterator</servlet-name>
+    <url-pattern>/TestIterator</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Test_zhanweifu</servlet-name>
+    <url-pattern>/Test_zhanweifu</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestOneResult</servlet-name>
+    <url-pattern>/TestOneResult</url-pattern>
+  </servlet-mapping>
+</web-app>

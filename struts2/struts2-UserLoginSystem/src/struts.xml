@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+  
+    <!-- 用户包 -->
+    <package name="users" namespace="/" extends="struts-default">
+
+            <action  name="register" class="com.controller.RegisterAction" method="register">
+              <result name="success">/regisucc.jsp</result>
+              <result name="input" >/register.jsp</result>
+            </action>
+            <action name="login"   class="com.controller.LoginAction" method="login">
+              <result name="success">/login_success.jsp</result>
+              <result name="input">/login.jsp</result>
+            </action>
+            <action name="checkCode" class="com.validated_code.CheckCode">
+               <result type="stream">
+                 <param name="contentType">image/jpeg</param>
+                 <param name="inputName">inputStream</param>
+               </result>
+            </action>
+    </package>
+    
+    <!-- 配置拦截器  拦截用户是否处于登录状态 -->
+    <package name="users-authority" extends="struts-default">
+        <interceptors> 
+           <interceptor class="com.interceptor.IfUserLogin" name="authority"/>
+            <interceptor-stack name="mydefault">
+               <interceptor-ref name="defaultStack"/>
+               <interceptor-ref name="authority"/>
+            </interceptor-stack>  
+        </interceptors>
+    <default-interceptor-ref name="mydefault"/>
+  
+    <global-results>
+      <result name="error">/error.jsp</result>
+    </global-results>
+    
+    <!-- 将action放入和拦截器同一个包下，则该action就会受到该拦截器的拦截 -->
+     <action name="showAllUsers" class="com.controller.ShowUsers" method="showAllUsers">
+         <result name="success">/showAllUsers.jsp</result>
+         <result name="input">/showForNotAdmin.jsp</result>
+     </action>
+      
+      <action name="selfInfoAction" class="com.controller.SelfInfoAction" method="selefInfo">
+        <result name="success">/showSelfInfo.jsp</result>
+    </action>
+    
+     <action name="update"  class="com.controller.UpdateAction" method="update">
+        <result name="success">/login_success.jsp</result>
+         
+     </action>
+    
+    </package>
+    
+    
+    
+   
+ 
+
+</struts>

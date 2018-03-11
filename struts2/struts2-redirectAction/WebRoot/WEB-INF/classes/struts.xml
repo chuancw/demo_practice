@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+    <action name="login" class="com.action.Login">
+       <result name="list" type="redirectAction">
+       <param name="actionName">List</param>
+       </result>
+    </action>
+    
+    <action name="List" class="com.action.List">
+        <result name="bookListJsp">/bookList.jsp</result>
+    </action>
+
+        <action name="login1" class="com.action.Login1">
+          <result name="list" type="redirectAction">
+           <param name="idInfo">${id}</param>
+           <param name="actionName">List2</param>
+          </result>
+       
+       </action>
+       <action name="List2" class="com.action.List2">
+         <result name="bookList">/bookLists.jsp</result>
+       </action>
+       
+    </package>
+
+ 
+
+</struts>

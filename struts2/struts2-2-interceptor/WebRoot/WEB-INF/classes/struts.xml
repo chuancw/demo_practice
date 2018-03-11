@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+  
+    <!-- 使用默认包 -->
+   
+   
+    <package name="testInterceptor" namespace="/" extends="struts-default">
+        <interceptors>
+              <interceptor  name="myinterceptor" class="interceptor.MyInterceptor">
+              
+              </interceptor>
+              <interceptor-stack name="myInterceptorStack">
+                  <interceptor-ref name="myinterceptor"></interceptor-ref>
+                  <interceptor-ref name="defaultStack"></interceptor-ref>
+              </interceptor-stack>
+        </interceptors> 
+
+          <action name="printUsername" class="controller.PrintUsername">
+            <result name="OK" >
+                /index.jsp
+            </result>
+            <interceptor-ref name="myInterceptorStack"></interceptor-ref>
+         </action>
+         
+    </package>
+     
+ 
+
+</struts>

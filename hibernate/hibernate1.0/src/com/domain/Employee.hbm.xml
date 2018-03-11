@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.domain">
+
+   <class name="Employee" table="employee">
+      <!-- id元素用于指定主键属性 -->
+     <id  name="id" column="id" type="java.lang.Integer">
+     <generator class="sequence">
+     <param name="sequence">emp_seq</param>
+     
+     </generator>
+     </id>
+     
+     
+     <property name="name" type="java.lang.String">
+      <column name='name' not-null="false"/>
+      
+     </property>
+     <property name="email" type="java.lang.String">
+       <column name="email" not-null="false"/>
+     </property>
+     <property name="hirdate" type="java.util.Date">
+      <column name="hirdate" not-null="false"/>
+     </property>
+    
+   </class>
+</hibernate-mapping>

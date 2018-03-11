@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="x" class="com.beans5.testAOP.X">
+ <property name="name" value="王川">
+  
+ </property>
+
+</bean>
+<bean id="tell" class="com.beans5.testAOP.Tell"></bean>
+
+ <bean id="myFirstAop"  class="org.springframework.aop.framework.ProxyFactoryBean">
+     <property name="proxyInterfaces">
+        <value>com.beans5.testAOP.A</value>
+     
+     </property>
+     <property name="target" ref="x"></property>
+     <property name="interceptorNames">
+       <value>tell</value>
+     </property>
+ 
+ 
+ 
+ 
+ </bean>
+</beans>
